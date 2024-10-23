@@ -1,0 +1,14 @@
+platform :ios, '12.0'
+
+# CocoaPods analytics sends network requests for statistical purposes
+# to learn about usage of CocoaPods. You can disable this by adding
+# the following line:
+# ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# Define your Flutter project
+flutter_application_path = '/Users/golf/somphot/somphotapp'
+load File.join(flutter_application_path, 'Flutter', 'podhelper.rb')
+
+target 'Runner' do
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
