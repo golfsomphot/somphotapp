@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:somphotapp/screen/login.dart';
-import 'package:somphotapp/widget/navbar.dart';
 
-
-void main() async {
- 
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:somphotapp/screen/login.dart';
 
 class HomeScreen extends StatelessWidget {
+  final Function onLogout; // รับฟังก์ชันออกจากระบบ
+
+  HomeScreen({required this.onLogout});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.black,
-        title: Text('Home',style: TextStyle(color: Colors.white),)
+        title: Text('Home'),
       ),
       body: Center(
         child: Column(
@@ -20,13 +21,10 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-             onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => LoginScreen()), 
-                  (Route<dynamic> route) => false,
-                );
+              onPressed: () {
+                onLogout();
               },
-              child: Text('Press Me'),
+              child: Text('Logout'),
             ),
           ],
         ),

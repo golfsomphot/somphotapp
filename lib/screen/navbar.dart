@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:somphotapp/screen/home.dart';
-
+import 'package:somphotapp/screen/login.dart';
 
 class Navbar extends StatefulWidget {
   @override
@@ -9,7 +9,6 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  // ตัวควบคุมของ tab view
   late PersistentTabController _controller;
 
   @override
@@ -18,51 +17,52 @@ class _NavbarState extends State<Navbar> {
     _controller = PersistentTabController(initialIndex: 0);
   }
 
-  // กำหนดหน้าที่จะแสดงในแต่ละ tab
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(),
-      Center(child: Text("Search")),
+      HomeScreen(onLogout: _logout),
+      /// Center(child: Text("Search")),
       Center(child: Text("Profile")),
       Center(child: Text("Settings")),
       Center(child: Text("Settings")),
     ];
   }
 
-  // กำหนดไอคอนและชื่อในแต่ละ tab
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
         icon: Icon(Icons.home),
         title: ("Home"),
-        // activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.search),
         title: ("Search"),
-        // activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.photo_camera),
         title: ("Photo"),
-        // activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.notifications),
         title: ("Notifications"),
-        // activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings),
         title: ("Settings"),
-        // activeColorPrimary: Colors.blue,
         inactiveColorPrimary: Colors.grey,
       ),
     ];
+  }
+
+  void _logout() {
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(
+          builder: (context) => LoginScreen()), // กลับไปที่ LoginScreen
+      (Route<dynamic> route) => false,
+    );
   }
 
   @override
@@ -73,16 +73,15 @@ class _NavbarState extends State<Navbar> {
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineToSafeArea: true,
-      backgroundColor: Colors.black, // สีของแถบเมนู
-      handleAndroidBackButtonPress: true, // การจัดการปุ่ม back บน Android
-      resizeToAvoidBottomInset: true, // ป้องกันการซ่อนแถบเมื่อแป้นพิมพ์แสดงขึ้นมา
-      stateManagement: true, // ใช้ State Management // ซ่อนแถบเมนูเมื่อแป้นพิมพ์แสดงขึ้นมา
+      backgroundColor: Colors.black,
+      handleAndroidBackButtonPress: true,
+      resizeToAvoidBottomInset: true,
+      stateManagement: true,
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(1.0),
         colorBehindNavBar: Colors.white,
-      ), 
-      navBarStyle:
-          NavBarStyle.style1,  
+      ),
+      navBarStyle: NavBarStyle.style1,
     );
   }
 }
