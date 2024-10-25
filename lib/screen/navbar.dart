@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:somphotapp/screen/historycount.dart';
 import 'package:somphotapp/screen/home.dart';
 import 'package:somphotapp/screen/login.dart';
+import 'package:somphotapp/screen/stock_count.dart';
+import 'package:somphotapp/screen/setting.dart';
 
 class Navbar extends StatefulWidget {
   @override
@@ -19,11 +22,11 @@ class _NavbarState extends State<Navbar> {
 
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(onLogout: _logout),
-      /// Center(child: Text("Search")),
+      Historycount(),
+      HomeScreen(),
+      Stockcount(),
       Center(child: Text("Profile")),
-      Center(child: Text("Settings")),
-      Center(child: Text("Settings")),
+      Setting(onLogout: _logout),
     ];
   }
 
@@ -41,7 +44,7 @@ class _NavbarState extends State<Navbar> {
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.photo_camera),
-        title: ("Photo"),
+        title: ("Scan"),
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(

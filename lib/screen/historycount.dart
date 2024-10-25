@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:somphotapp/screen/login.dart';
 
-class HomeScreen extends StatelessWidget {
-  // final Function onLogout; // รับฟังก์ชันออกจากระบบ
+class Historycount extends StatefulWidget {
+  const Historycount({super.key});
 
-  // HomeScreen({required this.onLogout});
+  @override
+  State<Historycount> createState() => _HistorycountState();
+}
+
+class _HistorycountState extends State<Historycount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          'Search',
+          'History',
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -20,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome to the Home Screen',
+              'Welcome to the Home Screen!',
               style: TextStyle(fontSize: 24),
             ),
             SizedBox(height: 20),
