@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:somphotapp/screen/login.dart';
+
+class HomeScreen extends StatelessWidget {
+  // final Function onLogout; // รับฟังก์ชันออกจากระบบ
+
+  // HomeScreen({required this.onLogout});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          'Search',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Welcome to the Home Screen',
+              style: TextStyle(fontSize: 24),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Add/Edit Products'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

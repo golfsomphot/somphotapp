@@ -1,0 +1,9 @@
+{
+    "cmake.ignoreCMakeListsMissing": true,
+    "editor.cursorBlinking": "blink",
+    "editor.cursorStyle": "line",
+    "files.autoSave": "afterDelay",
+    "editor.cursorSurroundingLines": 1,
+    "editor.cursorWidth": 1,
+    "editor.formatOnSave": true
+}
